@@ -17,7 +17,7 @@ SimpleHtmlPrecompiler.prototype.apply = function (compiler) {
         return new Promise(function (resolve, reject) {
           compileToHTML(self.staticDir, outputPath, self.options, function (prerenderedHTML) {
             if (self.options.postProcessHtml) {
-              prerenderedHTML = self.options.postProcessHtml({
+              prerenderedHTML = await self.options.postProcessHtml({
                 html: prerenderedHTML,
                 route: outputPath
               })
